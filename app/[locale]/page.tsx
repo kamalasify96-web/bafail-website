@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { setRequestLocale } from "next-intl/server";
 import Reveal from "@/components/ui/Reveal";
 import CountUp from "@/components/ui/CountUp";
 import OpsDashboardCard from "@/components/ui/OpsDashboardCard";
@@ -33,6 +34,7 @@ export default function HomePage({
 }: {
   params: { locale: string };
 }) {
+  setRequestLocale(locale);
   const t = useTranslations("home");
   const tc = useTranslations("categories");
 

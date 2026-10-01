@@ -1,7 +1,13 @@
 import { useTranslations } from "next-intl";
+import { setRequestLocale } from "next-intl/server";
 import PageHero from "@/components/ui/PageHero";
 
-export default function NewsPage() {
+export default function NewsPage({
+  params: { locale },
+}: {
+  params: { locale: string };
+}) {
+  setRequestLocale(locale);
   const t = useTranslations("news");
 
   return (

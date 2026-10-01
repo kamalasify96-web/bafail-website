@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { setRequestLocale } from "next-intl/server";
 import PageHero from "@/components/ui/PageHero";
 import Reveal from "@/components/ui/Reveal";
 import CountUp from "@/components/ui/CountUp";
@@ -7,7 +8,12 @@ import OpsDashboardCard from "@/components/ui/OpsDashboardCard";
 import CoverageMap from "@/components/ui/CoverageMap";
 import CertBadges from "@/components/ui/CertBadges";
 
-export default function CapabilitiesPage() {
+export default function CapabilitiesPage({
+  params: { locale },
+}: {
+  params: { locale: string };
+}) {
+  setRequestLocale(locale);
   const t = useTranslations("capabilities");
 
   const blocks = [

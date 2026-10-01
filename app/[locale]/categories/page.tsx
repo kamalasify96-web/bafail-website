@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { useTranslations } from "next-intl";
+import { setRequestLocale } from "next-intl/server";
 import PageHero from "@/components/ui/PageHero";
 import CategoryIcon from "@/components/ui/CategoryIcon";
 
@@ -10,6 +11,7 @@ export default function CategoriesPage({
 }: {
   params: { locale: string };
 }) {
+  setRequestLocale(locale);
   const t = useTranslations("categories");
 
   return (

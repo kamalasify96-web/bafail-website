@@ -1,7 +1,13 @@
 import { useTranslations } from "next-intl";
+import { setRequestLocale } from "next-intl/server";
 import PageHero from "@/components/ui/PageHero";
 
-export default function ContactPage() {
+export default function ContactPage({
+  params: { locale },
+}: {
+  params: { locale: string };
+}) {
+  setRequestLocale(locale);
   const t = useTranslations("contact");
 
   return (

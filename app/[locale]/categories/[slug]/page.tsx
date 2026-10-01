@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { useTranslations } from "next-intl";
+import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import PageHero from "@/components/ui/PageHero";
 import Reveal from "@/components/ui/Reveal";
@@ -18,6 +19,7 @@ export default function CategoryDetailPage({
 }: {
   params: { slug: string; locale: string };
 }) {
+  setRequestLocale(locale);
   const t = useTranslations("categories");
 
   if (!categorySlugs.includes(slug as CategorySlug)) notFound();

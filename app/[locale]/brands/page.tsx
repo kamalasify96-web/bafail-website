@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { setRequestLocale } from "next-intl/server";
 import PageHero from "@/components/ui/PageHero";
 import Reveal from "@/components/ui/Reveal";
 import BrandTag from "@/components/ui/BrandTag";
@@ -21,6 +22,7 @@ export default function BrandsPage({
 }: {
   params: { locale: string };
 }) {
+  setRequestLocale(locale);
   const t = useTranslations("brands");
   const tc = useTranslations("categories");
 

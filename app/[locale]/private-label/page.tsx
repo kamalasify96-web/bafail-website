@@ -1,9 +1,15 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { setRequestLocale } from "next-intl/server";
 import PageHero from "@/components/ui/PageHero";
 import Reveal from "@/components/ui/Reveal";
 
-export default function PrivateLabelPage() {
+export default function PrivateLabelPage({
+  params: { locale },
+}: {
+  params: { locale: string };
+}) {
+  setRequestLocale(locale);
   const t = useTranslations("privateLabel");
 
   return (

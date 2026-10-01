@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Unbounded, Inter, Changa, IBM_Plex_Sans_Arabic } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
-import { getMessages } from "next-intl/server";
+import { getMessages, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import "../globals.css";
 import Navbar from "@/components/layout/Navbar";
@@ -73,6 +73,8 @@ export default async function LocaleLayout({
   if (!locales.includes(locale)) {
     notFound();
   }
+
+  setRequestLocale(locale);
 
   const messages = await getMessages();
   const isRtl = locale === "ar";

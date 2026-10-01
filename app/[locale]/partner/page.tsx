@@ -1,10 +1,16 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { setRequestLocale } from "next-intl/server";
 import PageHero from "@/components/ui/PageHero";
 
 const retailPartners = ["fruit", "danube", "ninja"];
 
-export default function PartnerPage() {
+export default function PartnerPage({
+  params: { locale },
+}: {
+  params: { locale: string };
+}) {
+  setRequestLocale(locale);
   const t = useTranslations("partner");
 
   return (

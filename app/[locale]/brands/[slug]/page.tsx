@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import PageHero from "@/components/ui/PageHero";
 import Reveal from "@/components/ui/Reveal";
@@ -11,10 +12,11 @@ export function generateStaticParams() {
 }
 
 export default function BrandDetailPage({
-  params: { slug },
+  params: { slug, locale },
 }: {
   params: { slug: string; locale: string };
 }) {
+  setRequestLocale(locale);
   const t = useTranslations("brands");
   const tc = useTranslations("categories");
   const brand = brandMeta[slug as BrandSlug];
