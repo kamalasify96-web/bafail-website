@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #f4f2ec;
+  color: #0a1a2f;
+}
+
+/* A restrained brand texture for navy surfaces. Opacity variants let spacious
+   sections carry more detail while compact UI stays quiet and readable. */
+.navy-pattern {
+  isolation: isolate;
+}
+
+.navy-pattern::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: url("/mashrabiya-pattern.jpg");
+  background-position: center top;
+  background-size: 720px auto;
+  opacity: 0.055;
+  mix-blend-mode: screen;
+}
+
+.navy-pattern--subtle::before {
+  opacity: 0.028;
+  background-size: 620px auto;
+}
+
+.navy-pattern--feature::before {
+  opacity: 0.07;
+  background-size: 760px auto;
+}
+
+[dir="rtl"] .ltr-flip {
+  transform: scaleX(-1);
+}
+
+/* Arabic glyphs have a smaller optical size than the Latin typeface. A small
+   root adjustment keeps equivalent text equally readable across both locales. */
+html[dir="rtl"] {
+  font-size: 20px;
+}
+
+/* Mobile uses the entire wide photograph as a contained lower visual band.
+   This avoids the severe crop caused by `cover` on tall phone viewports. */
+.hero-visual {
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  opacity: 0.52;
+}
+
+.hero-visual-overlay {
+  background:
+    linear-gradient(180deg, rgba(10, 26, 47, 0.99) 0%, rgba(10, 26, 47, 0.96) 48%, rgba(10, 26, 47, 0.78) 72%, rgba(10, 26, 47, 0.5) 100%);
+}
+
+@media (min-width: 1024px) {
+  .hero-visual {
+    background-position: center;
+    background-size: cover;
+    opacity: 0.6;
+  }
+
+  .hero-visual-overlay {
+    background:
+      linear-gradient(90deg, rgba(10, 26, 47, 0.99) 0%, rgba(10, 26, 47, 0.94) 36%, rgba(10, 26, 47, 0.72) 63%, rgba(10, 26, 47, 0.5) 100%),
+      linear-gradient(180deg, rgba(10, 26, 47, 0.18) 0%, rgba(10, 26, 47, 0.08) 55%, rgba(10, 26, 47, 0.72) 100%);
+  }
+}
+
+[dir="rtl"] .hero-visual,
+[dir="rtl"] .hero-visual-overlay {
+  transform: scaleX(-1);
+}
+
+[dir="rtl"] .hero-body-copy {
+  font-size: 1.0625rem;
+  line-height: 1.95;
+}
+
+/* Approved Arabic type system: Changa (display/headlines), IBM Plex Sans Arabic (body) */
+[dir="rtl"] .font-display {
+  font-family: var(--font-changa), sans-serif;
+}
+
+[dir="rtl"] .font-display-latin {
+  font-family: var(--font-unbounded), sans-serif;
+}
+
+[dir="rtl"] .font-body {
+  font-family: var(--font-ibm-plex-arabic), sans-serif;
+}
+
+/* Arabic letters must stay joined — letter-spacing breaks cursive connection.
+   Must target every descendant directly: an inherited value never overrides
+   an element's own explicit letter-spacing (e.g. Tailwind's tracking-* utilities). */
+[dir="rtl"],
+[dir="rtl"] * {
+  letter-spacing: normal !important;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .group [style*="--marquee-duration"] {
+    animation: none !important;
+  }
+}
