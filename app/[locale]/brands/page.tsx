@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Image from "next/image";
+import Image from "@/components/ui/Img";
 import { useTranslations } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
 import PageHero from "@/components/ui/PageHero";

@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
+import Image from "@/components/ui/Img";
+import { withBasePath } from "@/lib/basePath";
 
 export default function LoadingScreen({ locale }: { locale: string }) {
   const [visible, setVisible] = useState(true);
@@ -73,7 +74,7 @@ export default function LoadingScreen({ locale }: { locale: string }) {
         <div
           aria-hidden="true"
           className="absolute inset-0 bg-cover bg-center opacity-[0.065] mix-blend-screen"
-          style={{ backgroundImage: "url('/mashrabiya-pattern.jpg')" }}
+          style={{ backgroundImage: `url('${withBasePath("/mashrabiya-pattern.jpg")}')` }}
         />
       </div>
 

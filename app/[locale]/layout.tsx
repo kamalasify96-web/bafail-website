@@ -9,6 +9,7 @@ import Footer from "@/components/layout/Footer";
 import WhatsAppButton from "@/components/layout/WhatsAppButton";
 import TickerBar from "@/components/layout/TickerBar";
 import LoadingScreen from "@/components/ui/LoadingScreen";
+import { withBasePath } from "@/lib/basePath";
 
 const unbounded = Unbounded({
   subsets: ["latin"],
@@ -86,6 +87,7 @@ export default async function LocaleLayout({
       translate="no"
       className="notranslate"
       suppressHydrationWarning
+      style={{ "--mashrabiya-url": `url('${withBasePath("/mashrabiya-pattern.jpg")}')` } as React.CSSProperties}
     >
       <body
         translate="no"

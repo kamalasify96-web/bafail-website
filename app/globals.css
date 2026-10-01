@@ -23,7 +23,7 @@ body {
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  background-image: url("/mashrabiya-pattern.jpg");
+  background-image: var(--mashrabiya-url, url("/mashrabiya-pattern.jpg"));
   background-position: center top;
   background-size: 720px auto;
   opacity: 0.055;
