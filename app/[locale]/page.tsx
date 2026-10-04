@@ -7,6 +7,7 @@ import CountUp from "@/components/ui/CountUp";
 import OpsDashboardCard from "@/components/ui/OpsDashboardCard";
 import AnimatedHero from "@/components/ui/AnimatedHero";
 import CategoryIcon from "@/components/ui/CategoryIcon";
+import CategoryPattern from "@/components/ui/CategoryPattern";
 import Marquee from "@/components/ui/Marquee";
 
 const stats = [
@@ -80,8 +81,9 @@ export default function HomePage({
       </section>
 
       {/* CATEGORIES */}
-      <section className="bg-sand py-24">
-        <div className="max-w-6xl mx-auto px-6 lg:px-10">
+      <section className="relative overflow-hidden bg-sand py-24">
+        <CategoryPattern />
+        <div className="relative max-w-6xl mx-auto px-6 lg:px-10">
           <Reveal>
             <div className="text-center mb-14">
               <div className="font-display text-[11px] tracking-[0.3em] uppercase text-gold-dark mb-5">
