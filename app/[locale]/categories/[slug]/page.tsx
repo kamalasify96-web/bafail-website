@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "@/components/ui/Img";
 import { useTranslations } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -52,9 +53,13 @@ export default function CategoryDetailPage({
                   href={b === "towt" ? `/${locale}/private-label` : `/${locale}/brands/${b}`}
                   className="bg-white rounded-xl p-6 flex items-center justify-between border border-navy/5 hover:shadow-lg transition-all cursor-pointer"
                 >
-                  <span className="font-display font-semibold text-navy">
-                    {brandMeta[b].name}
-                  </span>
+                  <Image
+                    src={brandMeta[b].logo.replace(".png", "-tight.png")}
+                    alt={brandMeta[b].name}
+                    width={180}
+                    height={64}
+                    className="h-14 w-auto max-w-[200px] object-contain"
+                  />
                   <BrandTag type={brandMeta[b].type ?? "principal"} />
                 </Link>
               </Reveal>
