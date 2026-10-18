@@ -35,7 +35,7 @@ export const brandMeta: Record<
   saray: {
     name: "Saray",
     logo: "/brands/saray.png",
-    categories: ["biscuits", "confectionery"],
+    categories: ["biscuits", "wafers", "snacks", "sweets"],
   },
   tunnocks: {
     name: "Tunnock's",
@@ -74,7 +74,13 @@ export function getProductCategory(brand: BrandSlug, product: Product): Category
   if (brand === "towt") return "beverages";
   if (brand === "raja") return "snacks";
   if (brand === "hazerbaba") return "sweets";
-  if (brand === "saray") return product.name.toLowerCase().includes("biscuit") ? "biscuits" : "confectionery";
+  if (brand === "saray") {
+    const n = product.name.toLowerCase();
+    if (n.includes("wafer")) return "wafers";
+    if (n.includes("cake")) return "snacks";
+    if (n.includes("candy")) return "sweets";
+    return "biscuits";
+  }
   if (brand === "tunnocks") {
     if (product.name === "Snowballs") return "confectionery";
     if (product.name === "Tea Cakes") return "biscuits";
@@ -285,7 +291,43 @@ export const products: Record<BrandSlug, Product[]> = {
       ],
     },
   ],
-  saray: [],
+  saray: [
+    {
+      name: "Holey",
+      weight: "24 packs",
+      images: ["/products/saray/holey-pack.png", "/products/saray/holey-box.png"],
+    },
+    {
+      name: "Kek — Cocoa Cake",
+      weight: "24 pcs",
+      images: ["/products/saray/kek-cocoa-cake-pack.png", "/products/saray/kek-cocoa-cake-box.png"],
+    },
+    {
+      name: "Marble Cake with Cocoa",
+      weight: "230g",
+      images: ["/products/saray/marble-cake-box.png", "/products/saray/marble-cake-slice.png"],
+    },
+    {
+      name: "Çikilop",
+      weight: "24 pcs",
+      images: ["/products/saray/cikilop-pack.png", "/products/saray/cikilop-box.png"],
+    },
+    {
+      name: "Çikilop Cuk",
+      weight: "24 pcs",
+      images: ["/products/saray/cikilop-cuk-pack.png", "/products/saray/cikilop-cuk-box.png"],
+    },
+    {
+      name: "Eldenele % Wafer",
+      weight: "Display box",
+      images: ["/products/saray/eldenele-wafer-pack.png", "/products/saray/eldenele-wafer-box.png"],
+    },
+    {
+      name: "Mix Filled Soft Candy",
+      weight: "Bag",
+      images: ["/products/saray/mix-candy-bag.png"],
+    },
+  ],
   burtons: [],
   hazerbaba: [],
   raja: [],

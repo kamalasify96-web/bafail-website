@@ -8,9 +8,9 @@ import { withBasePath } from "@/lib/basePath";
 type Stat = { key: string; value: number; label: string; prefix?: string; suffix?: string };
 const ease = [0.22, 1, 0.36, 1] as const;
 
-export default function AnimatedHero({ eyebrow, title, sub, partnerHref, partnerCtaLabel, downloadLabel, stats }: {
+export default function AnimatedHero({ eyebrow, title, sub, partnerHref, partnerCtaLabel, downloadLabel, catalogueLabel, catalogueDownloadLabel, catalogueHref, stats }: {
   eyebrow: string; title: string; sub: string; partnerHref: string;
-  partnerCtaLabel: string; downloadLabel: string; stats: Stat[];
+  partnerCtaLabel: string; downloadLabel: string; catalogueLabel: string; catalogueDownloadLabel: string; catalogueHref: string; stats: Stat[];
 }) {
   const words = title.split(" ");
 
@@ -51,6 +51,14 @@ export default function AnimatedHero({ eyebrow, title, sub, partnerHref, partner
                 <a href={withBasePath("/Bafail-Group-Company-Profile.pdf")} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full border border-cream/20 px-6 py-3.5 font-display text-[10px] uppercase tracking-[0.13em] text-cream transition-all hover:border-gold/70 hover:text-gold">
                   {downloadLabel}<span aria-hidden="true" className="text-sm">↓</span>
                 </a>
+                <div className="inline-flex items-stretch overflow-hidden rounded-full border border-cream/20 font-display text-[10px] uppercase tracking-[0.13em] text-cream transition-all hover:border-gold/70">
+                  <a href={withBasePath(catalogueHref)} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-6 py-3.5 transition-colors hover:text-gold">
+                    {catalogueLabel}<span aria-hidden="true" className="text-sm">↗</span>
+                  </a>
+                  <a href={withBasePath(catalogueHref)} download="Bafail-Group-Product-Catalogue.pdf" aria-label={catalogueDownloadLabel} className="inline-flex items-center justify-center gap-2 border-cream/20 bg-cream/5 px-5 py-3.5 transition-colors hover:bg-gold hover:text-navy ltr:border-l rtl:border-r">
+                    {catalogueDownloadLabel}<span aria-hidden="true" className="text-sm">↓</span>
+                  </a>
+                </div>
               </div>
             </motion.div>
           </div>

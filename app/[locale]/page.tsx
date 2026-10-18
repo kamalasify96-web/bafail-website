@@ -49,6 +49,9 @@ export default function HomePage({
         partnerHref={`/${locale}/partner`}
         partnerCtaLabel={t("partnerCtaPrincipal")}
         downloadLabel={t("downloadProfile")}
+        catalogueLabel={t("viewCatalogue")}
+        catalogueDownloadLabel={t("downloadCatalogue")}
+        catalogueHref={`/Bafail-Group-Product-Catalogue-${locale === "ar" ? "AR" : "EN"}.pdf`}
         stats={stats.map((s) => ({ ...s, label: t(s.key) }))}
       />
 
