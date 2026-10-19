@@ -8,7 +8,10 @@ import OpsDashboardCard from "@/components/ui/OpsDashboardCard";
 import AnimatedHero from "@/components/ui/AnimatedHero";
 import CategoryIcon from "@/components/ui/CategoryIcon";
 import CategoryPattern from "@/components/ui/CategoryPattern";
+import { withBasePath } from "@/lib/basePath";
 import Marquee from "@/components/ui/Marquee";
+import CatalogueShowcase, { type ShowcaseBrand } from "@/components/ui/CatalogueShowcase";
+import { brandMeta, products, type BrandSlug } from "@/lib/products";
 
 const stats = [
   { key: "statYears", value: 55, suffix: "" },
@@ -30,6 +33,20 @@ const brandLogos = [
   { name: "TOWT", logo: "/brands/towt-transparent.png" },
 ];
 
+const showcaseSlugs: BrandSlug[] = ["piccadeli", "tunnocks", "saray", "swich", "towt"];
+
+function buildShowcase(): { brands: ShowcaseBrand[]; all: ShowcaseBrand["products"] } {
+  const brands = showcaseSlugs.map((slug) => {
+    const seen = new Set<string>();
+    const list = products[slug]
+      .filter((p) => p.images.length > 0 && !seen.has(p.name) && seen.add(p.name))
+      .map((p) => ({ brand: brandMeta[slug].name, name: p.name, weight: p.weight, image: p.images[0] }));
+    return { slug, name: brandMeta[slug].name, logo: brandMeta[slug].logo.replace(".png", "-tight.png"), products: list.slice(0, 8) };
+  });
+  const all = [0, 1].flatMap((i) => brands.map((b) => b.products[i]).filter(Boolean)).slice(0, 8);
+  return { brands, all };
+}
+
 export default function HomePage({
   params: { locale },
 }: {
@@ -38,6 +55,7 @@ export default function HomePage({
   setRequestLocale(locale);
   const t = useTranslations("home");
   const tc = useTranslations("categories");
+  const showcase = buildShowcase();
 
   return (
     <>
@@ -112,6 +130,52 @@ export default function HomePage({
               </Reveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* CATALOGUE PEEK */}
+      <section className="bg-cream py-24">
+        <div className="max-w-6xl mx-auto px-6 lg:px-10">
+          <Reveal>
+            <div className="text-center mb-10">
+              <div className="font-display text-[11px] tracking-[0.3em] uppercase text-gold-dark mb-5">
+                {t("catalogueEyebrow")}
+              </div>
+              <h2 className="font-display font-semibold text-2xl md:text-4xl text-navy mb-4">
+                {t("catalogueTitle")}
+              </h2>
+              <p className="text-navy/60 max-w-xl mx-auto">{t("catalogueSub")}</p>
+            </div>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <CatalogueShowcase
+              brands={showcase.brands}
+              allProducts={showcase.all}
+              allLabel={t("catalogueAll")}
+              viewBrandLabel={t("catalogueViewBrand")}
+              brandHref={`/${locale}/brands`}
+              total={stats[1].value}
+            />
+          </Reveal>
+          <Reveal delay={0.15}>
+            <div className="flex flex-wrap justify-center gap-4 mt-12">
+              <a
+                href={withBasePath(`/Bafail-Group-Product-Catalogue-${locale === "ar" ? "AR" : "EN"}.pdf`)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-navy text-cream font-display text-xs tracking-[0.15em] uppercase px-8 py-4 rounded-full hover:bg-navy/90 transition-colors"
+              >
+                {t("viewCatalogue")} ↗
+              </a>
+              <a
+                href={withBasePath(`/Bafail-Group-Product-Catalogue-${locale === "ar" ? "AR" : "EN"}.pdf`)}
+                download="Bafail-Group-Product-Catalogue.pdf"
+                className="border border-navy text-navy font-display text-xs tracking-[0.15em] uppercase px-8 py-4 rounded-full hover:bg-navy hover:text-cream transition-colors"
+              >
+                {t("downloadCatalogue")} ↓
+              </a>
+            </div>
+          </Reveal>
         </div>
       </section>
 
