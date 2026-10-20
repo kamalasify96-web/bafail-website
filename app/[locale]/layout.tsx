@@ -54,7 +54,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   title: "Bafail Group | FMCG Distribution — Nationwide, KSA",
   description:
-    "Bafail Group has distributed trusted FMCG brands across Saudi Arabia since 1972 — confectionery, biscuits, wafers, sweets, and snacks.",
+    "Bafail Group has distributed trusted FMCG brands across Saudi Arabia since 1972 — confectionery, biscuits, wafers, sweets, snacks, and rice.",
   openGraph: {
     type: "website",
     siteName: "Bafail Group",

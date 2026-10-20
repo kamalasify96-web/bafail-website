@@ -14,6 +14,7 @@ const brands = [
   { slug: "burtons", name: "Burton's", logo: "/brands/burtons.png", categories: ["biscuits"], skus: 4, type: "principal" as const },
   { slug: "hazerbaba", name: "Hazer Baba", logo: "/brands/hazerbaba.png", categories: ["sweets"], skus: 23, type: "principal" as const },
   { slug: "raja", name: "Raja", logo: "/brands/raja.png", categories: ["snacks"], skus: 14, type: "principal" as const },
+  { slug: "malka", name: "Malka", logo: "/brands/malka.png", categories: ["rice"], skus: 7, type: "principal" as const },
   { slug: "towt", name: "TOWT", logo: "/brands/towt-transparent.png", categories: ["beverages"], skus: 1, type: "private" as const },
 ];
 

@@ -44,6 +44,13 @@ export const categoryShapes: Record<string, JSX.Element> = {
       <path d="M9 11h6" />
     </>
   ),
+  rice: (
+    <>
+      <path d="M5 11h14l-1.2 7.2a2 2 0 01-2 1.8H8.2a2 2 0 01-2-1.8z" />
+      <path d="M8 11c0-3 1.8-5 4-5s4 2 4 5" />
+      <path d="M10 8.5l.6-1.4M12.5 8l.2-1.6M14.5 9l.9-1.2" />
+    </>
+  ),
   beverages: (
     <>
       <path d="M9 3h6v3l2 3v11H7V9l2-3z" />

@@ -12,8 +12,8 @@
   "ticker": {
     "i1": "Since 1972",
     "i2": "Nationwide, KSA",
-    "i3": "7 Principal Brands",
-    "i4": "138 SKUs Distributed",
+    "i3": "8 Principal Brands",
+    "i4": "145 SKUs Distributed",
     "i5": "8 Cities, 8 Warehouses"
   },
   "nav": {
@@ -54,7 +54,7 @@
     "brandsTitle": "The brands we're trusted to carry.",
     "brandsCta": "View all brands",
     "categoriesEyebrow": "What We Distribute",
-    "categoriesTitle": "Six categories. One standard of quality.",
+    "categoriesTitle": "Seven categories. One standard of quality.",
     "partnerEyebrow": "Become Our Partner",
     "partnerTitle": "Looking for a distribution partner in Saudi Arabia?",
     "partnerSub": "Whether you're a retailer looking to stock our portfolio or a brand seeking KSA distribution, let's talk.",
@@ -142,7 +142,7 @@
   },
   "categories": {
     "eyebrow": "What We Distribute",
-    "title": "Six categories. One standard of quality.",
+    "title": "Seven categories. One standard of quality.",
     "confectionery": "Chocolate & Bars",
     "biscuits": "Biscuits",
     "wafers": "Wafers",
@@ -150,7 +150,8 @@
     "snacks": "Snacks",
     "beverages": "Beverages",
     "categoryIntro": "Every product shown on this page — from every principal and private-label brand we carry — sits together, in one place.",
-    "comingSoon": "Product listings for this category are being finalized."
+    "comingSoon": "Product listings for this category are being finalized.",
+    "rice": "Rice"
   },
   "privateLabel": {
     "eyebrow": "Private Label",

@@ -14,6 +14,7 @@ const tile: [string, number, number, number, number][] = [
   ["wafers", 130, 262, -18, 2.2],
   ["snacks", 285, 270, 8, 2.1],
   ["beverages", 410, 262, 20, 2.3],
+  ["rice", 215, 95, 14, 2.1],
 ];
 
 const W = 520;

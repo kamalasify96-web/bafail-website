@@ -4,7 +4,7 @@ import { setRequestLocale } from "next-intl/server";
 import PageHero from "@/components/ui/PageHero";
 import CategoryIcon from "@/components/ui/CategoryIcon";
 
-const categoryKeys = ["confectionery", "biscuits", "wafers", "sweets", "snacks", "beverages"];
+const categoryKeys = ["confectionery", "biscuits", "wafers", "sweets", "snacks", "beverages", "rice"];
 
 export default function CategoriesPage({
   params: { locale },
@@ -23,7 +23,7 @@ export default function CategoriesPage({
           <p className="text-navy/70 leading-relaxed">{t("categoryIntro")}</p>
         </div>
 
-        <div className="max-w-6xl mx-auto px-6 lg:px-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-5">
+        <div className="max-w-6xl mx-auto px-6 lg:px-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-5">
           {categoryKeys.map((key) => (
             <Link
               key={key}

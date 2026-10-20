@@ -9,7 +9,7 @@ import BrandTag from "@/components/ui/BrandTag";
 import ProductSlider from "@/components/ui/ProductSlider";
 import { brandMeta, getProductCategory, products, type BrandSlug, type CategorySlug } from "@/lib/products";
 
-const categorySlugs: CategorySlug[] = ["confectionery", "biscuits", "wafers", "sweets", "snacks", "beverages"];
+const categorySlugs: CategorySlug[] = ["confectionery", "biscuits", "wafers", "sweets", "snacks", "beverages", "rice"];
 
 export function generateStaticParams() {
   return categorySlugs.map((slug) => ({ slug }));

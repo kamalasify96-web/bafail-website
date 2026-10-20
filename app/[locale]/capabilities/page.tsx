@@ -25,7 +25,7 @@ export default function CapabilitiesPage({
 
   const stats = [
     { value: 55, suffix: "", label: t("statYears") },
-    { value: 138, suffix: "", prefix: "", label: t("statSkus") },
+    { value: 145, suffix: "", prefix: "", label: t("statSkus") },
     { value: 7, suffix: "", label: t("statPrincipalBrands") },
     { value: 8, suffix: "", label: t("statWarehouses") },
     { value: 120, suffix: "", label: t("statFleetVehicles") },

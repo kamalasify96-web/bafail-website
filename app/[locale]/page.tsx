@@ -15,12 +15,12 @@ import { brandMeta, products, type BrandSlug } from "@/lib/products";
 
 const stats = [
   { key: "statYears", value: 55, suffix: "" },
-  { key: "statSkus", value: 138, suffix: "", prefix: "" },
-  { key: "statPrincipals", value: 7, suffix: "" },
+  { key: "statSkus", value: 145, suffix: "", prefix: "" },
+  { key: "statPrincipals", value: 8, suffix: "" },
   { key: "statWarehouses", value: 8, suffix: "" },
 ];
 
-const categoryKeys = ["confectionery", "biscuits", "wafers", "sweets", "snacks", "beverages"];
+const categoryKeys = ["confectionery", "biscuits", "wafers", "sweets", "snacks", "beverages", "rice"];
 
 const brandLogos = [
   { name: "Piccadeli", logo: "/brands/piccadeli.png" },
@@ -30,10 +30,11 @@ const brandLogos = [
   { name: "Burton's", logo: "/brands/burtons.png" },
   { name: "Hazer Baba", logo: "/brands/hazerbaba.png" },
   { name: "Raja", logo: "/brands/raja.png" },
+  { name: "Malka", logo: "/brands/malka.png" },
   { name: "TOWT", logo: "/brands/towt-transparent.png" },
 ];
 
-const showcaseSlugs: BrandSlug[] = ["piccadeli", "tunnocks", "saray", "swich", "towt"];
+const showcaseSlugs: BrandSlug[] = ["piccadeli", "tunnocks", "saray", "malka", "swich", "towt"];
 
 function buildShowcase(): { brands: ShowcaseBrand[]; all: ShowcaseBrand["products"] } {
   const brands = showcaseSlugs.map((slug) => {
@@ -115,7 +116,7 @@ export default function HomePage({
               </h2>
             </div>
           </Reveal>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-5">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-5">
             {categoryKeys.map((key, i) => (
               <Reveal key={key} delay={i * 0.05}>
                 <Link

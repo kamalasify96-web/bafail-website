@@ -6,6 +6,7 @@ export type BrandSlug =
   | "burtons"
   | "hazerbaba"
   | "raja"
+  | "malka"
   | "towt";
 
 export type CategorySlug =
@@ -14,7 +15,8 @@ export type CategorySlug =
   | "wafers"
   | "sweets"
   | "snacks"
-  | "beverages";
+  | "beverages"
+  | "rice";
 
 export type Product = {
   name: string;
@@ -49,6 +51,11 @@ export const brandMeta: Record<
     categories: ["sweets"],
   },
   raja: { name: "Raja", logo: "/brands/raja.png", categories: ["snacks"] },
+  malka: {
+    name: "Malka",
+    logo: "/brands/malka.png",
+    categories: ["rice"],
+  },
   towt: {
     name: "TOWT",
     logo: "/brands/towt-transparent.png",
@@ -72,6 +79,7 @@ const piccadeliWafers = new Set([
 export function getProductCategory(brand: BrandSlug, product: Product): CategorySlug {
   if (brand === "swich" || brand === "burtons") return "biscuits";
   if (brand === "towt") return "beverages";
+  if (brand === "malka") return "rice";
   if (brand === "raja") return "snacks";
   if (brand === "hazerbaba") return "sweets";
   if (brand === "saray") {
@@ -326,6 +334,43 @@ export const products: Record<BrandSlug, Product[]> = {
       name: "Mix Filled Soft Candy",
       weight: "Bag",
       images: ["/products/saray/mix-candy-bag.png"],
+    },
+  ],
+  malka: [
+    {
+      name: "Extra Long Pearl Basmati Rice",
+      weight: "1kg Pouch",
+      images: ["/products/malka/pearl-1kg.png"],
+    },
+    {
+      name: "Extra Long Pearl Basmati Rice",
+      weight: "5kg Pouch",
+      images: ["/products/malka/pearl-5kg.png"],
+    },
+    {
+      name: "Extra Long Pearl Basmati Rice",
+      weight: "10kg Woven Bag",
+      images: ["/products/malka/pearl-10kg.png"],
+    },
+    {
+      name: "Extra Long Sella Basmati Rice",
+      weight: "1kg Pouch",
+      images: ["/products/malka/sella-1kg.png"],
+    },
+    {
+      name: "Extra Long Sella Basmati Rice",
+      weight: "4.5kg Pouch",
+      images: ["/products/malka/sella-45kg.png"],
+    },
+    {
+      name: "Extra Long Sella Basmati Rice — Saudia",
+      weight: "5kg Bag",
+      images: ["/products/malka/sella-5kg-saudia.png"],
+    },
+    {
+      name: "Extra Long Sella Basmati Rice",
+      weight: "10kg Woven Bag",
+      images: ["/products/malka/sella-10kg.png"],
     },
   ],
   burtons: [],
