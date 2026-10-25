@@ -6,9 +6,17 @@ import PageHero from "@/components/ui/PageHero";
 import Reveal from "@/components/ui/Reveal";
 import ProductSlider from "@/components/ui/ProductSlider";
 import { brandMeta, products, type BrandSlug } from "@/lib/products";
+import { buildMetadata, pageCopy, brandCopy, categoryCopy, breadcrumbJsonLd, categoryName, type Locale } from "@/lib/seo";
+import JsonLd from "@/components/seo/JsonLd";
 
 export function generateStaticParams() {
   return Object.keys(brandMeta).map((slug) => ({ slug }));
+}
+
+export function generateMetadata({ params: { slug, locale } }: { params: { slug: string; locale: string } }) {
+  const brand = brandMeta[slug as BrandSlug];
+  if (!brand) return {};
+  return buildMetadata(locale as Locale, `brands/${slug}`, brandCopy(slug as BrandSlug, locale as Locale));
 }
 
 export default function BrandDetailPage({
@@ -27,6 +35,12 @@ export default function BrandDetailPage({
 
   return (
     <>
+      <JsonLd
+        data={breadcrumbJsonLd(locale as Locale, [
+          { name: locale === "ar" ? "العلامات" : "Brands", path: "brands" },
+          { name: brand.name, path: `brands/${slug}` },
+        ])}
+      />
       <PageHero eyebrow={t("eyebrow")} title={brand.name} />
 
       <section className="bg-cream py-20">

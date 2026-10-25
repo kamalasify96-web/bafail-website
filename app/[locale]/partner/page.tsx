@@ -2,8 +2,13 @@ import Image from "@/components/ui/Img";
 import { useTranslations } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
 import PageHero from "@/components/ui/PageHero";
+import { buildMetadata, pageCopy, type Locale } from "@/lib/seo";
 
 const retailPartners = ["fruit", "danube", "ninja"];
+
+export function generateMetadata({ params: { locale } }: { params: { locale: string } }) {
+  return buildMetadata(locale as Locale, "partner", pageCopy("partner", locale as Locale));
+}
 
 export default function PartnerPage({
   params: { locale },

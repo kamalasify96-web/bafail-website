@@ -5,6 +5,7 @@ import { setRequestLocale } from "next-intl/server";
 import PageHero from "@/components/ui/PageHero";
 import Reveal from "@/components/ui/Reveal";
 import BrandTag from "@/components/ui/BrandTag";
+import { buildMetadata, pageCopy, type Locale } from "@/lib/seo";
 
 const brands = [
   { slug: "piccadeli", name: "Piccadeli", logo: "/brands/piccadeli.png", categories: ["confectionery", "wafers", "sweets", "snacks"], skus: 56, type: "principal" as const },
@@ -17,6 +18,10 @@ const brands = [
   { slug: "malka", name: "Malka", logo: "/brands/malka.png", categories: ["rice"], skus: 7, type: "principal" as const },
   { slug: "towt", name: "TOWT", logo: "/brands/towt-transparent.png", categories: ["beverages"], skus: 1, type: "private" as const },
 ];
+
+export function generateMetadata({ params: { locale } }: { params: { locale: string } }) {
+  return buildMetadata(locale as Locale, "brands", pageCopy("brands", locale as Locale));
+}
 
 export default function BrandsPage({
   params: { locale },

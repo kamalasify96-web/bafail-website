@@ -12,6 +12,7 @@ import { withBasePath } from "@/lib/basePath";
 import Marquee from "@/components/ui/Marquee";
 import CatalogueShowcase, { type ShowcaseBrand } from "@/components/ui/CatalogueShowcase";
 import { brandMeta, products, type BrandSlug } from "@/lib/products";
+import { buildMetadata, pageCopy, type Locale } from "@/lib/seo";
 
 const stats = [
   { key: "statYears", value: 55, suffix: "" },
@@ -46,6 +47,10 @@ function buildShowcase(): { brands: ShowcaseBrand[]; all: ShowcaseBrand["product
   });
   const all = [0, 1].flatMap((i) => brands.map((b) => b.products[i]).filter(Boolean)).slice(0, 8);
   return { brands, all };
+}
+
+export function generateMetadata({ params: { locale } }: { params: { locale: string } }) {
+  return buildMetadata(locale as Locale, "", pageCopy("", locale as Locale));
 }
 
 export default function HomePage({

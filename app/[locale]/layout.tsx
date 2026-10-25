@@ -10,6 +10,8 @@ import WhatsAppButton from "@/components/layout/WhatsAppButton";
 import TickerBar from "@/components/layout/TickerBar";
 import LoadingScreen from "@/components/ui/LoadingScreen";
 import { withBasePath } from "@/lib/basePath";
+import JsonLd from "@/components/seo/JsonLd";
+import { organizationJsonLd, SITE_URL, OG_IMAGE, type Locale } from "@/lib/seo";
 
 const unbounded = Unbounded({
   subsets: ["latin"],
@@ -52,14 +54,16 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Bafail Group | FMCG Distribution — Nationwide, KSA",
+  metadataBase: new URL(SITE_URL),
+  title: "Bafail Group | FMCG Distributor in Saudi Arabia since 1972",
   description:
-    "Bafail Group has distributed trusted FMCG brands across Saudi Arabia since 1972 — confectionery, biscuits, wafers, sweets, snacks, and rice.",
+    "Bafail Group distributes leading confectionery, biscuits, wafers, sweets, snacks, rice and beverages to retailers and wholesalers across Saudi Arabia.",
   openGraph: {
     type: "website",
     siteName: "Bafail Group",
-    images: ["/logo-badge-transparent.png"],
+    images: [{ url: OG_IMAGE, width: 1200, height: 630 }],
   },
+  twitter: { card: "summary_large_image", images: [OG_IMAGE] },
 };
 
 export default async function LocaleLayout({
@@ -95,6 +99,7 @@ export default async function LocaleLayout({
           isRtl ? "font-body-ar" : "font-body"
         } antialiased`}
       >
+        <JsonLd data={organizationJsonLd(locale as Locale)} />
         <NextIntlClientProvider messages={messages}>
           <LoadingScreen locale={locale} />
           <Navbar locale={locale} />

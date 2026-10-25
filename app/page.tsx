@@ -6,7 +6,11 @@ export default function RootPage() {
     <html lang="en">
       <head>
         <meta httpEquiv="refresh" content={`0; url=${target}`} />
-        <title>Bafail Group</title>
+        <title>Bafail Group | FMCG Distributor in Saudi Arabia</title>
+        <link rel="canonical" href="https://osbafail.com/en/" />
+        <link rel="alternate" hrefLang="en" href="https://osbafail.com/en/" />
+        <link rel="alternate" hrefLang="ar" href="https://osbafail.com/ar/" />
+        <link rel="alternate" hrefLang="x-default" href="https://osbafail.com/en/" />
       </head>
       <body>
         <p>

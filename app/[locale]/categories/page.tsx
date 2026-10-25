@@ -3,8 +3,13 @@ import { useTranslations } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
 import PageHero from "@/components/ui/PageHero";
 import CategoryIcon from "@/components/ui/CategoryIcon";
+import { buildMetadata, pageCopy, type Locale } from "@/lib/seo";
 
 const categoryKeys = ["confectionery", "biscuits", "wafers", "sweets", "snacks", "beverages", "rice"];
+
+export function generateMetadata({ params: { locale } }: { params: { locale: string } }) {
+  return buildMetadata(locale as Locale, "categories", pageCopy("categories", locale as Locale));
+}
 
 export default function CategoriesPage({
   params: { locale },

@@ -7,6 +7,11 @@ import CountUp from "@/components/ui/CountUp";
 import OpsDashboardCard from "@/components/ui/OpsDashboardCard";
 import CoverageMap from "@/components/ui/CoverageMap";
 import CertBadges from "@/components/ui/CertBadges";
+import { buildMetadata, pageCopy, type Locale } from "@/lib/seo";
+
+export function generateMetadata({ params: { locale } }: { params: { locale: string } }) {
+  return buildMetadata(locale as Locale, "capabilities", pageCopy("capabilities", locale as Locale));
+}
 
 export default function CapabilitiesPage({
   params: { locale },

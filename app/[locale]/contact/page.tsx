@@ -1,6 +1,11 @@
 import { useTranslations } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
 import PageHero from "@/components/ui/PageHero";
+import { buildMetadata, pageCopy, type Locale } from "@/lib/seo";
+
+export function generateMetadata({ params: { locale } }: { params: { locale: string } }) {
+  return buildMetadata(locale as Locale, "contact", pageCopy("contact", locale as Locale));
+}
 
 export default function ContactPage({
   params: { locale },

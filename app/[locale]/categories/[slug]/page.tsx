@@ -8,11 +8,18 @@ import Reveal from "@/components/ui/Reveal";
 import BrandTag from "@/components/ui/BrandTag";
 import ProductSlider from "@/components/ui/ProductSlider";
 import { brandMeta, getProductCategory, products, type BrandSlug, type CategorySlug } from "@/lib/products";
+import { buildMetadata, pageCopy, brandCopy, categoryCopy, breadcrumbJsonLd, categoryName, type Locale } from "@/lib/seo";
+import JsonLd from "@/components/seo/JsonLd";
 
 const categorySlugs: CategorySlug[] = ["confectionery", "biscuits", "wafers", "sweets", "snacks", "beverages", "rice"];
 
 export function generateStaticParams() {
   return categorySlugs.map((slug) => ({ slug }));
+}
+
+export function generateMetadata({ params: { slug, locale } }: { params: { slug: string; locale: string } }) {
+  if (!categorySlugs.includes(slug as CategorySlug)) return {};
+  return buildMetadata(locale as Locale, `categories/${slug}`, categoryCopy(slug as CategorySlug, locale as Locale));
 }
 
 export default function CategoryDetailPage({
@@ -36,6 +43,12 @@ export default function CategoryDetailPage({
 
   return (
     <>
+      <JsonLd
+        data={breadcrumbJsonLd(locale as Locale, [
+          { name: locale === "ar" ? "الفئات" : "Categories", path: "categories" },
+          { name: categoryName(slug as CategorySlug, locale as Locale), path: `categories/${slug}` },
+        ])}
+      />
       <PageHero eyebrow={t("eyebrow")} title={t(slug)} />
 
       <section className="bg-cream py-20">
