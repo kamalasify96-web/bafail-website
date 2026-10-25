@@ -1,13 +1,16 @@
+import { BASE_PATH } from "@/lib/basePath";
+
 export default function RootPage() {
+  const target = `${BASE_PATH}/en/`;
   return (
     <html lang="en">
       <head>
-        <meta httpEquiv="refresh" content="0; url=/bafail-website/en/" />
+        <meta httpEquiv="refresh" content={`0; url=${target}`} />
         <title>Bafail Group</title>
       </head>
       <body>
         <p>
-          Redirecting to <a href="/bafail-website/en/">the Bafail Group website</a>...
+          Redirecting to <a href={target}>the Bafail Group website</a>...
         </p>
       </body>
     </html>
